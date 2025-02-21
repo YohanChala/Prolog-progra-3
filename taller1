@@ -1,0 +1,8 @@
+abraham(homero;herbert).
+mona(homero;herbert).
+
+padre_homero(bart;lisa;maggie).
+madre_marge(bart;lisa;maggie).
+
+abuelo_abraham(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
+abuela_mona(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
