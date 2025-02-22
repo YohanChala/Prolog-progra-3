@@ -6,3 +6,9 @@ madre_marge(bart;lisa;maggie).
 
 abuelo_abraham(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
 abuela_mona(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
+
+clancy(marge;patty;selma).
+jacqueline(marge;patty;selma).
+%hola
+abuelo_clancy(X):-(X=bart; X=lisa; X=maggie; madre_marge(X)).
+abuela_jacqueline(X):-(X=bart; X=lisa; X=maggie; madre_marge(X)).
