@@ -1,14 +1,30 @@
+%Linea genealogica por parte de homero
 abraham(homero;herbert).
 mona(homero;herbert).
 
+%Hechos para obtener la relacion de los padres con los hijos de manera colectiva.
+%Creacion de AND y OR en los hechos para usarlos en las reglas y obtener la relacion
+%de los abuelos con sus nietos por medio de OR o AND.
 padre_homero(bart;lisa;maggie).
+padre_homero(bart,lisa,maggie).
 madre_marge(bart;lisa;maggie).
-
+madre_marge(bart,lisa,maggie).
+%Reglas para obtener la relacion del abuelo con los nietos ya sea de manera individual
+%con un OR, o de manera colectiva con un AND.
 abuelo_abraham(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
+abuelo_abraham(X,Y,Z):-(X=bart, Y=lisa, Z=maggie, padre_homero(X,Y,Z)).
 abuela_mona(X):-(X=bart; X=lisa; X=maggie; padre_homero(X)).
+abuela_mona(X,Y,Z):-(X=bart; X=lisa; X=maggie; padre_homero(X,Y,Z)).
 
-clancy(marge;patty;selma).
-jacqueline(marge;patty;selma).
-%hola
-abuelo_clancy(X):-(X=bart; X=lisa; X=maggie; madre_marge(X)).
-abuela_jacqueline(X):-(X=bart; X=lisa; X=maggie; madre_marge(X)).
+
+%Linea genealogica por parte de marge
+clancy(marge,patty,selma).
+jacqueline(marge,patty,selma).
+
+selma(ling).
+%Reglas para obtener la relacion del abuelo con los nietos ya sea de manera individual
+%con un OR, o de manera colectiva con un AND.
+abuelo_clancy(X):-(X=bart; X=lisa; X=maggie; X=ling; madre_marge(X); selma(X)).
+abuelo_clancy(X,Y,Z,A):-(X=bart, Y=lisa, Z=maggie, A=ling, madre_marge(X,Y,Z), selma(A)).
+abuela_jacqueline(X):-(X=bart; X=lisa; X=maggie; X=ling; madre_marge(X); selma(X)).
+abuela_jacqueline(X,Y,Z,A):-(X=bart, Y=lisa, Z=maggie, A=ling, madre_marge(X,Y,Z), selma(A)).
