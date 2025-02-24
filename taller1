@@ -1,3 +1,5 @@
+1.Arbol Genealogico simpson
+
 %Linea genealogica por parte de homero
 abraham(homero;herbert).
 mona(homero;herbert).
@@ -28,3 +30,16 @@ abuelo_clancy(X):-(X=bart; X=lisa; X=maggie; X=ling; madre_marge(X); selma(X)).
 abuelo_clancy(X,Y,Z,A):-(X=bart, Y=lisa, Z=maggie, A=ling, madre_marge(X,Y,Z), selma(A)).
 abuela_jacqueline(X):-(X=bart; X=lisa; X=maggie; X=ling; madre_marge(X); selma(X)).
 abuela_jacqueline(X,Y,Z,A):-(X=bart, Y=lisa, Z=maggie, A=ling, madre_marge(X,Y,Z), selma(A)).
+
+
+2. Demostracion de que West es un crriminal
+
+%Hechos
+nacionalidad(estadounidense).
+vende(venta_de_misiles).
+enemigo(corea_del_sur).
+
+%Regla para verificar que west es un crimial si cuenta con los tres requisitos:
+%estadounidense, vender misiles, corea_del_sur.
+crimen_west(X,Y,Z) :-(X=estadounidense, Y=venta_de_misiles, Z=corea_del_sur, nacionalidad(X), vende(Y), enemigo(Z)).
+
